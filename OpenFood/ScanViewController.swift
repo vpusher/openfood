@@ -112,15 +112,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             // Send the doctored UPC to DataService.searchAPI()
             FoodDataService.getProduct(trimmedCodeNoZero, callback: { (product) in
                 
-                if let p = product {
-                    let name = p["product_name"] as? String
-                    let brand = p["brands"] as? String
-                    let image = p["image_url"] as? String
-                    let grades = p["nutrition_grades_tags"] as? NSArray
-                    let grade = grades?[0] as? String
-                    
-                    let food = Food(name: name!, brand: brand, thumbnail: image, nutritionGrade: grade)
-                    detailViewController.food = food
+                if let product = product {
+
+                    detailViewController.food = Food.fromDictionnary(product)
 
                     alert.dismiss(animated: true, completion: nil)
                     
@@ -142,16 +136,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             FoodDataService.getProduct(trimmedCodeString, callback: { (product) in
                 
 
-                if let p = product {
-                    let name = p["product_name"] as? String
-                    let brand = p["brands"] as? String
-                    let image = p["image_url"] as? String
-                    let grades = p["nutrition_grades_tags"] as? NSArray
-                    let grade = grades?[0] as? String
+                if let product = product {
 
-                    let food = Food(name: name, brand: brand, thumbnail: image, nutritionGrade: grade)
-                    detailViewController.food = food
-
+                    detailViewController.food = Food.fromDictionnary(product)
+                    
                     alert.dismiss(animated: true, completion: nil)
 
                     DispatchQueue.main.async {

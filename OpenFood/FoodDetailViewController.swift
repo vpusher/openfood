@@ -13,6 +13,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var gradeLabel: GradeLabel!
     
     private let default_thumbnail = UIImage(named: "default_food")!
     private var blur: UIVisualEffectView? = nil
@@ -21,6 +22,7 @@ class FoodDetailViewController: UIViewController {
     
     func updateUI() {
         self.nameLabel.text = food?.name
+        self.gradeLabel.grade = food?.nutritionGrade
         
         if self.food?.thumbnail != nil {
             DataService.ImageFromURL(food.thumbnail!, callback: { (imageData) in

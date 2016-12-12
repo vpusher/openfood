@@ -10,12 +10,12 @@ import Foundation
 
 class FoodDataService {
     
-    public static func searchProducts (_ query: String, callback: @escaping (NSArray?) -> Void) {
+    public static func searchProducts (_ query: String, callback: @escaping ([Dictionary<String, AnyObject>]?) -> Void) {
         
         let urlQuery = query.replacingOccurrences(of: " ", with: "+")
         
         DataService.JSONFromURL("http://world.openfoodfacts.org/cgi/search.pl?search_terms=\(urlQuery)&search_simple=1&action=process&json=1", callback: { (data) in
-            let products = data?["products"] as? NSArray
+            let products = data?["products"] as? [Dictionary<String, AnyObject>]
             callback(products)
         })
 

@@ -21,14 +21,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         FoodDataService.searchProducts("nutella", callback: { (products) in
             
             for product in products! {
-                let p = product as! [String: AnyObject]
-                let name = p["product_name"] as? String
-                let brand = p["brands"] as? String
-                let image = p["image_url"] as? String
-                let grades = p["nutrition_grades_tags"] as! NSArray
-                let grade = grades[0] as! String
-                
-                self.foods.append(Food(name: name!, brand: brand, thumbnail: image, nutritionGrade: grade))
+                self.foods.append(Food.fromDictionnary(product))
             }
             
             DispatchQueue.main.async(){
@@ -58,14 +51,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             self.foods = [Food]()
             
             for product in products! {
-                let p = product as! [String: AnyObject]
-                let name = p["product_name"] as? String
-                let brand = p["brands"] as? String
-                let image = p["image_url"] as? String
-                let grades = p["nutrition_grades_tags"] as? NSArray
-                let grade = grades?[0] as? String
-                
-                self.foods.append(Food(name: name!, brand: brand, thumbnail: image, nutritionGrade: grade))
+                self.foods.append(Food.fromDictionnary(product))
             }
             
             DispatchQueue.main.async(){
