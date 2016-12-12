@@ -236,13 +236,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let pvc = pageViewController.delegate as! PageViewController
         pvc.enable()
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        if (session?.isRunning == true) {
-//            session.stopRunning()
-//        }
-//    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer.frame = view.layer.bounds;
+    }
 
 }

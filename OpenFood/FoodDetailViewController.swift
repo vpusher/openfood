@@ -15,6 +15,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     private let default_thumbnail = UIImage(named: "default_food")!
+    private var blur: UIVisualEffectView? = nil
     
     var food: Food!
     
@@ -39,25 +40,31 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = self.food.name
+
+
         
         updateUI()
 
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillLayoutSubviews() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = backgroundImage.bounds
-        backgroundImage.addSubview(blurView)
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let blur = blur {
+            blur.frame = backgroundImage.bounds
+        } else {
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+            blur = UIVisualEffectView(effect: blurEffect)
+            blur?.frame = backgroundImage.bounds
+            backgroundImage.addSubview(blur!)
+        }
+    }
 
 }
 
