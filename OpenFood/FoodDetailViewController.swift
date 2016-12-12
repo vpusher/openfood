@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  openfoodfacts
+//  OpenFood
 //
 //  Created by MAFFINI Florian on 11/27/16.
 //  Copyright © 2016 MAFFINI Florian. All rights reserved.
@@ -19,12 +19,12 @@ class FoodDetailViewController: UIViewController {
     var food: Food!
     
     func updateUI() {
-        self.nameLabel.text = self.food.name
+        self.nameLabel.text = food?.name
         
         if self.food?.thumbnail != nil {
             DataService.ImageFromURL(food.thumbnail!, callback: { (imageData) in
                 DispatchQueue.main.async(){
-                    let im =  UIImage(data: imageData)
+                    let im =  UIImage(data: imageData!)
                     self.imageView.image = im
                     self.backgroundImage.image = im
                 }

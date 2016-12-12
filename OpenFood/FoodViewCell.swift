@@ -1,6 +1,6 @@
 //
 //  FoodTableView.swift
-//  openfoodfacts
+//  OpenFood
 //
 //  Created by MAFFINI Florian on 11/27/16.
 //  Copyright © 2016 MAFFINI Florian. All rights reserved.
@@ -31,7 +31,7 @@ class FoodViewCell : UITableViewCell {
         if food.thumbnail != nil {
             DataService.ImageFromURL(self.food.thumbnail!, callback: { (imageData) in
                 DispatchQueue.main.async(){
-                    self.thumbnailView.image = UIImage(data: imageData)
+                    self.thumbnailView.image = UIImage(data: imageData!)
                 }
             })
         } else {

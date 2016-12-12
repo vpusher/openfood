@@ -1,6 +1,6 @@
 //
 //  Data.swift
-//  openfoodfacts
+//  OpenFood
 //
 //  Created by MAFFINI Florian on 11/27/16.
 //  Copyright © 2016 MAFFINI Florian. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 class DataService {
     
-    public static func JSONFromURL (_ url: String, callback: @escaping (Dictionary<String, AnyObject>) -> Void) {
+    public static func JSONFromURL (_ url: String, callback: @escaping (Dictionary<String, AnyObject>?) -> Void) {
         
         let urlFinal = URL(string: url)
         var jsonDictionnary: Dictionary<String, AnyObject>?
@@ -41,7 +41,7 @@ class DataService {
         
     }
     
-    public static func ImageFromURL (_ url: String, callback: @escaping (Data) -> Void) {
+    public static func ImageFromURL (_ url: String, callback: @escaping (Data?) -> Void) {
         
         let url = URL(string: url)
         

@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62070F61DF5DB700097B145 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62070F51DF5DB700097B145 /* PageViewController.swift */; };
+		A62070F81DF6237E0097B145 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62070F71DF6237E0097B145 /* ScanViewController.swift */; };
+		A62070FA1DF6F0C20097B145 /* FoodDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62070F91DF6F0C20097B145 /* FoodDataService.swift */; };
 		A67690011DF00E4A0004C786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690001DF00E4A0004C786 /* AppDelegate.swift */; };
 		A67690061DF00E4A0004C786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67690041DF00E4A0004C786 /* Main.storyboard */; };
 		A67690081DF00E4A0004C786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67690071DF00E4A0004C786 /* Assets.xcassets */; };
 		A676900B1DF00E4A0004C786 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67690091DF00E4A0004C786 /* LaunchScreen.storyboard */; };
 		A67690161DF00E4A0004C786 /* OpenFoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690151DF00E4A0004C786 /* OpenFoodTests.swift */; };
 		A67690211DF00E4A0004C786 /* OpenFoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690201DF00E4A0004C786 /* OpenFoodUITests.swift */; };
-		A676902F1DF00EC80004C786 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A676902E1DF00EC80004C786 /* MainViewController.swift */; };
+		A676902F1DF00EC80004C786 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A676902E1DF00EC80004C786 /* SearchViewController.swift */; };
 		A67690311DF00ECF0004C786 /* FoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690301DF00ECF0004C786 /* FoodViewCell.swift */; };
 		A67690331DF00ED50004C786 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690321DF00ED50004C786 /* FoodDetailViewController.swift */; };
 		A67690351DF00EDB0004C786 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690341DF00EDB0004C786 /* Food.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A62070F51DF5DB700097B145 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		A62070F71DF6237E0097B145 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		A62070F91DF6F0C20097B145 /* FoodDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDataService.swift; sourceTree = "<group>"; };
 		A6768FFD1DF00E4A0004C786 /* OpenFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67690001DF00E4A0004C786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A67690051DF00E4A0004C786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,7 +57,7 @@
 		A676901C1DF00E4A0004C786 /* OpenFoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67690201DF00E4A0004C786 /* OpenFoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodUITests.swift; sourceTree = "<group>"; };
 		A67690221DF00E4A0004C786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A676902E1DF00EC80004C786 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A676902E1DF00EC80004C786 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A67690301DF00ECF0004C786 /* FoodViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewCell.swift; sourceTree = "<group>"; };
 		A67690321DF00ED50004C786 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		A67690341DF00EDB0004C786 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -108,8 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				A67690001DF00E4A0004C786 /* AppDelegate.swift */,
-				A676902E1DF00EC80004C786 /* MainViewController.swift */,
+				A62070F51DF5DB700097B145 /* PageViewController.swift */,
+				A676902E1DF00EC80004C786 /* SearchViewController.swift */,
 				A67690301DF00ECF0004C786 /* FoodViewCell.swift */,
+				A62070F71DF6237E0097B145 /* ScanViewController.swift */,
 				A67690321DF00ED50004C786 /* FoodDetailViewController.swift */,
 				A67690041DF00E4A0004C786 /* Main.storyboard */,
 				A6F0FE1F1DF223CF0067D60E /* GradeLabel.swift */,
@@ -117,6 +125,7 @@
 				A67690091DF00E4A0004C786 /* LaunchScreen.storyboard */,
 				A67690341DF00EDB0004C786 /* Food.swift */,
 				A67690361DF00EE00004C786 /* DataService.swift */,
+				A62070F91DF6F0C20097B145 /* FoodDataService.swift */,
 				A676900C1DF00E4A0004C786 /* Info.plist */,
 			);
 			path = OpenFood;
@@ -208,6 +217,7 @@
 				TargetAttributes = {
 					A6768FFC1DF00E4A0004C786 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = YHAM5ZMGCB;
 						ProvisioningStyle = Automatic;
 					};
 					A67690101DF00E4A0004C786 = {
@@ -276,11 +286,14 @@
 			files = (
 				A67690311DF00ECF0004C786 /* FoodViewCell.swift in Sources */,
 				A67690371DF00EE00004C786 /* DataService.swift in Sources */,
-				A676902F1DF00EC80004C786 /* MainViewController.swift in Sources */,
+				A676902F1DF00EC80004C786 /* SearchViewController.swift in Sources */,
+				A62070FA1DF6F0C20097B145 /* FoodDataService.swift in Sources */,
 				A6F0FE201DF223CF0067D60E /* GradeLabel.swift in Sources */,
 				A67690331DF00ED50004C786 /* FoodDetailViewController.swift in Sources */,
 				A67690011DF00E4A0004C786 /* AppDelegate.swift in Sources */,
 				A67690351DF00EDB0004C786 /* Food.swift in Sources */,
+				A62070F61DF5DB700097B145 /* PageViewController.swift in Sources */,
+				A62070F81DF6237E0097B145 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,9 +445,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YHAM5ZMGCB;
 				INFOPLIST_FILE = OpenFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.vpusher.openfood;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmaffini.playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -444,9 +458,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YHAM5ZMGCB;
 				INFOPLIST_FILE = OpenFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.vpusher.openfood;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmaffini.playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

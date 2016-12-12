@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  SearchViewController.swift
 //  openfoodfacts
 //
 //  Created by MAFFINI Florian on 11/27/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,13 +18,9 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataService.JSONFromURL("http://world.openfoodfacts.org/cgi/search.pl?search_terms=nutella&search_simple=1&action=process&json=1", callback: { (data) in
+        FoodDataService.searchProducts("nutella", callback: { (products) in
             
-            self.foods = [Food]()
-            
-            let products = data["products"] as! NSArray
-            
-            for product in products {
+            for product in products! {
                 let p = product as! [String: AnyObject]
                 let name = p["product_name"] as? String
                 let brand = p["brands"] as? String
@@ -46,6 +42,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,15 +52,12 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let keyworks = searchBar.text
-        let urlKeyworkds = keyworks?.replacingOccurrences(of: " ", with: "+")
         
-        DataService.JSONFromURL("http://world.openfoodfacts.org/cgi/search.pl?search_terms=\(urlKeyworkds!)&search_simple=1&action=process&json=1", callback: { (data) in
+        FoodDataService.searchProducts(keyworks!, callback: { (products) in
             
             self.foods = [Food]()
             
-            let products = data["products"] as! NSArray
-            
-            for product in products {
+            for product in products! {
                 let p = product as! [String: AnyObject]
                 let name = p["product_name"] as? String
                 let brand = p["brands"] as? String
@@ -107,6 +101,12 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         if segue.identifier == "godetail" {
             let foodDetailViewController = segue.destination as! FoodDetailViewController
             if let selectedCell = sender as? FoodViewCell {
+                
+                // Disable page controller
+                let pageViewController = self.navigationController?.parent as! UIPageViewController
+                let pvc = pageViewController.delegate as! PageViewController
+                pvc.disable()
+                
                 let indexPath = tableView.indexPath(for: selectedCell)!
                 let selectedFood = foods[indexPath.row]
                 foodDetailViewController.food = selectedFood
@@ -115,5 +115,9 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        let pageViewController = self.navigationController?.parent as! UIPageViewController
+        let pvc = pageViewController.delegate as! PageViewController
+        pvc.enable()
+    }
 }
