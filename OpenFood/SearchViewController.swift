@@ -74,7 +74,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FoodViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FoodCell
         let food = foods[indexPath.row]
         
         cell.food = food
@@ -86,7 +86,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         
         if segue.identifier == "godetail" {
             let foodDetailViewController = segue.destination as! FoodDetailViewController
-            if let selectedCell = sender as? FoodViewCell {
+            if let selectedCell = sender as? FoodCell {
                 
                 // Disable page controller
                 let pageViewController = self.navigationController?.parent as! UIPageViewController

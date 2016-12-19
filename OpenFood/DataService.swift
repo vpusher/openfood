@@ -12,7 +12,7 @@ class DataService {
     
     public static func JSONFromURL (_ url: String, callback: @escaping (Dictionary<String, AnyObject>?) -> Void) {
         
-        let urlFinal = URL(string: url)
+        let urlFinal = URL(string: url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         var jsonDictionnary: Dictionary<String, AnyObject>?
         
         let task = URLSession.shared.dataTask(with: urlFinal!, completionHandler: { (data, response, error) -> Void in

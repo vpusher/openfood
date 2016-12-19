@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodViewCell : UITableViewCell {
+class FoodCell : UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gradeLabel: GradeLabel!

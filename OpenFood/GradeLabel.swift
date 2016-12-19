@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class GradeLabel: UILabel {
     
     let grades: [String: UIColor] = [
@@ -17,26 +18,27 @@ class GradeLabel: UILabel {
         "d": UIColor(red: 0.933, green: 0.506, blue: 0.0, alpha: 1.0),
         "e": UIColor(red: 0.902, green: 0.243, blue: 0.066, alpha: 1.0),
     ]
-    var grade: String? {
+    
+    @IBInspectable var grade: String? {
         didSet {
             self.setNeedsDisplay()
         }
     }
-    
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        self.layer.borderWidth = 1.0
+        //self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 5
         
         if grade != nil && grades[grade!] != nil  {
             let color = grades[grade!]
             self.text = grade!.uppercased()
-            self.layer.borderColor = color?.cgColor
-            self.textColor = color
+            //self.layer.borderColor = color?.cgColor
+            self.layer.backgroundColor = color?.cgColor
+            self.textColor = UIColor.white
         } else {
             self.isHidden = true
         }

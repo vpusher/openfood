@@ -34,8 +34,8 @@ class Food {
         food.brand = product["brands"] as? String
         food.thumbnail = product["image_url"] as? String
         
-        let grades = product["nutrition_grades_tags"] as! [String]
-        food.nutritionGrade = grades[0]
+        let grades = product["nutrition_grades_tags"] as? [String]
+        food.nutritionGrade = grades?[0]
         
         return food
         

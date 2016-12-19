@@ -164,7 +164,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.session = nil
 
-        self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
 
         return alert;
     }
@@ -188,8 +190,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         alert.view.addSubview(loadingIndicator)
         loadingIndicator.startAnimating()
 
-        self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
-
+        DispatchQueue.main.async {
+            self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
         return alert
     }
 
@@ -227,7 +231,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        previewLayer.frame = view.layer.bounds;
+        previewLayer?.frame = view.layer.bounds;
     }
 
 }

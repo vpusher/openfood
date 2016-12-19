@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class FoodDetailViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
