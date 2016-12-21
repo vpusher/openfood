@@ -22,54 +22,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_sample" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-zB-fE6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_sample" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-zB-fE6" customClass="BlurredImageView" customModule="OpenFood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_sample" translatesAutoresizingMaskIntoConstraints="NO" id="k19-6e-8eE">
-                                <rect key="frame" x="16" y="84" width="343" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_sample" translatesAutoresizingMaskIntoConstraints="NO" id="k19-6e-8eE" customClass="ShadowedImageView" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="27" y="84" width="320" height="215"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="pVE-PS-izW"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="b5R-Bw-S9g"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="320" id="yfZ-9P-lD2"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jae-jd-fTa">
-                                <rect key="frame" x="16" y="348" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="313" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-fR-NFj" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
-                                <rect key="frame" x="16" y="383" width="20" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-gY-cIZ" userLabel="A Grade Label" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="112" y="347" width="35" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="2p7-dQ-YVB"/>
-                                    <constraint firstAttribute="height" constant="20" id="9Fq-qe-mrD"/>
+                                    <constraint firstAttribute="width" constant="35" identifier="width" id="Kb2-7B-aDd"/>
+                                    <constraint firstAttribute="height" constant="30" identifier="height" id="b5l-Rx-r9V"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="grade" value="a"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aow-OP-js7" userLabel="B Grade Label" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="142" y="347" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" identifier="height" id="Cdv-bJ-aIk"/>
+                                    <constraint firstAttribute="width" constant="30" identifier="width" id="yUD-Fq-D57"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="grade" value="b"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-EJ-z7g" userLabel="E Grade Label" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="227" y="347" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" identifier="height" id="6HT-Ng-awI"/>
+                                    <constraint firstAttribute="width" constant="35" identifier="width" id="m7B-Hb-MMm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="grade" value="e"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-fR-NFj" userLabel="C Grade Label" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="172" y="347" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" identifier="width" id="2p7-dQ-YVB"/>
+                                    <constraint firstAttribute="height" constant="30" identifier="height" id="9Fq-qe-mrD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="grade" value="c"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-x7-7vT" userLabel="D Grade Label" customClass="GradeLabel" customModule="OpenFood" customModuleProvider="target">
+                                <rect key="frame" x="202" y="347" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" identifier="width" id="KsW-lV-djh"/>
+                                    <constraint firstAttribute="height" constant="30" identifier="height" id="THa-1h-Ryx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="grade" value="d"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MQJ-fR-NFj" firstAttribute="leading" secondItem="oYb-tx-8y5" secondAttribute="leadingMargin" id="9k7-WL-h9E"/>
+                            <constraint firstItem="Aow-OP-js7" firstAttribute="centerY" secondItem="MQJ-fR-NFj" secondAttribute="centerY" id="0TT-dC-rdR"/>
+                            <constraint firstItem="nBD-EJ-z7g" firstAttribute="leading" secondItem="RfQ-x7-7vT" secondAttribute="trailing" constant="-5" id="3uY-NI-RuX"/>
+                            <constraint firstItem="MQJ-fR-NFj" firstAttribute="leading" secondItem="Aow-OP-js7" secondAttribute="trailing" id="61v-Da-gx7"/>
                             <constraint firstItem="k19-6e-8eE" firstAttribute="top" secondItem="8z6-o3-FR0" secondAttribute="bottom" constant="20" id="Aer-zR-tgL"/>
                             <constraint firstItem="MQJ-fR-NFj" firstAttribute="top" secondItem="Jae-jd-fTa" secondAttribute="bottom" constant="14" id="EHG-Ke-0BQ"/>
-                            <constraint firstItem="k19-6e-8eE" firstAttribute="leading" secondItem="V3g-zB-fE6" secondAttribute="leading" constant="16" id="LsB-Nl-m3u"/>
+                            <constraint firstItem="k19-6e-8eE" firstAttribute="centerX" secondItem="oYb-tx-8y5" secondAttribute="centerX" id="Hbm-ws-PcS"/>
                             <constraint firstItem="Jae-jd-fTa" firstAttribute="top" secondItem="k19-6e-8eE" secondAttribute="bottom" constant="14" id="Ojg-n4-eau"/>
+                            <constraint firstItem="RfQ-x7-7vT" firstAttribute="centerY" secondItem="MQJ-fR-NFj" secondAttribute="centerY" id="RqA-Vx-MCh"/>
+                            <constraint firstItem="nBD-EJ-z7g" firstAttribute="centerY" secondItem="MQJ-fR-NFj" secondAttribute="centerY" id="Twx-ey-mKU"/>
                             <constraint firstItem="Jae-jd-fTa" firstAttribute="leading" secondItem="oYb-tx-8y5" secondAttribute="leadingMargin" id="UXI-Pr-chJ"/>
+                            <constraint firstItem="RfQ-x7-7vT" firstAttribute="leading" secondItem="MQJ-fR-NFj" secondAttribute="trailing" id="Uug-ss-smw"/>
+                            <constraint firstItem="MQJ-fR-NFj" firstAttribute="centerX" secondItem="oYb-tx-8y5" secondAttribute="centerX" id="geP-lN-B6C"/>
                             <constraint firstItem="f2P-9o-Huz" firstAttribute="top" secondItem="V3g-zB-fE6" secondAttribute="bottom" id="kGQ-6z-hon"/>
+                            <constraint firstItem="b8E-gY-cIZ" firstAttribute="centerY" secondItem="MQJ-fR-NFj" secondAttribute="centerY" id="l6L-Gd-RYC"/>
                             <constraint firstItem="V3g-zB-fE6" firstAttribute="leading" secondItem="oYb-tx-8y5" secondAttribute="leading" id="nsL-Hy-9IP"/>
-                            <constraint firstItem="k19-6e-8eE" firstAttribute="trailing" secondItem="V3g-zB-fE6" secondAttribute="trailing" constant="-16" id="poy-HL-MNN"/>
+                            <constraint firstItem="Aow-OP-js7" firstAttribute="leading" secondItem="b8E-gY-cIZ" secondAttribute="trailing" constant="-5" id="oLh-FI-AYp"/>
                             <constraint firstItem="Jae-jd-fTa" firstAttribute="trailing" secondItem="oYb-tx-8y5" secondAttribute="trailingMargin" id="y3b-vk-2iS"/>
                             <constraint firstItem="V3g-zB-fE6" firstAttribute="top" secondItem="8z6-o3-FR0" secondAttribute="bottom" id="zJF-da-vP1"/>
                             <constraint firstAttribute="trailing" secondItem="V3g-zB-fE6" secondAttribute="trailing" id="zbV-AV-C5g"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aGradeLabel" destination="b8E-gY-cIZ" id="lId-jS-dTP"/>
+                        <outlet property="bGradeLabel" destination="Aow-OP-js7" id="W8c-W5-hlt"/>
                         <outlet property="backgroundImage" destination="V3g-zB-fE6" id="GlS-49-Sne"/>
-                        <outlet property="gradeLabel" destination="MQJ-fR-NFj" id="2W7-y8-w0g"/>
+                        <outlet property="cGradeLabel" destination="MQJ-fR-NFj" id="8pg-7d-ye3"/>
+                        <outlet property="dGradeLabel" destination="RfQ-x7-7vT" id="brZ-Ie-2Ao"/>
+                        <outlet property="eGradeLabel" destination="nBD-EJ-z7g" id="0nQ-4T-L8S"/>
                         <outlet property="imageView" destination="k19-6e-8eE" id="uka-3N-xgk"/>
                         <outlet property="nameLabel" destination="Jae-jd-fTa" id="XIZ-7I-5Od"/>
                     </connections>
@@ -143,6 +223,7 @@
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="grade" value="a"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="borderRadius" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>

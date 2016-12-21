@@ -25,13 +25,19 @@ class GradeLabel: UILabel {
         }
     }
     
+    @IBInspectable var borderRadius: Bool = true {
+        didSet {
+            self.layer.cornerRadius = borderRadius ? 5 : 0
+            self.setNeedsDisplay()
+        }
+    }
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        //self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 5
+        self.adjustsFontSizeToFitWidth = true
         
         if grade != nil && grades[grade!] != nil  {
             let color = grades[grade!]

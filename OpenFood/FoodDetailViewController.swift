@@ -8,22 +8,43 @@
 
 import UIKit
 
-@IBDesignable
 class FoodDetailViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ShadowedImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var gradeLabel: GradeLabel!
+    @IBOutlet weak var backgroundImage: BlurredImageView!
     
+    @IBOutlet weak var aGradeLabel: GradeLabel!
+    @IBOutlet weak var bGradeLabel: GradeLabel!
+
+    @IBOutlet weak var cGradeLabel: GradeLabel!
+    @IBOutlet weak var dGradeLabel: GradeLabel!
+    @IBOutlet weak var eGradeLabel: GradeLabel!
+
     private let default_thumbnail = UIImage(named: "default_food")!
-    private var blur: UIVisualEffectView? = nil
     
     var food: Food!
     
     func updateUI() {
         self.nameLabel.text = food?.name
-        self.gradeLabel.grade = food?.nutritionGrade
+        //self.gradeLabel.grade = food?.nutritionGrade
+
+
+        for gradeLabel in [aGradeLabel, bGradeLabel, cGradeLabel, dGradeLabel, eGradeLabel] where (gradeLabel?.grade == food?.nutritionGrade) {
+
+            for heightConstraint in (gradeLabel?.constraints)! where (heightConstraint.identifier == "height") {
+                heightConstraint.constant = 50
+                break
+            }
+
+            for widthConstraint in (gradeLabel?.constraints)! where (widthConstraint.identifier == "width") {
+                widthConstraint.constant = 50
+                break
+            }
+
+            gradeLabel?.borderRadius = true
+            gradeLabel?.layer.zPosition = 1
+        }
         
         if self.food?.thumbnail != nil {
             DataService.ImageFromURL(food.thumbnail!, callback: { (imageData) in
@@ -43,11 +64,7 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = self.food.name
-
-
-        
         updateUI()
-
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -55,18 +72,9 @@ class FoodDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if let blur = blur {
-            blur.frame = backgroundImage.bounds
-        } else {
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
-            blur = UIVisualEffectView(effect: blurEffect)
-            blur?.frame = backgroundImage.bounds
-            backgroundImage.addSubview(blur!)
-        }
+        backgroundImage.updateBlurFrame()
     }
 
 }

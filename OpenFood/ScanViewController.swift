@@ -116,18 +116,19 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
 
                     detailViewController.food = Food.fromDictionnary(product)
 
-                    alert.dismiss(animated: true, completion: nil)
-                    
                     DispatchQueue.main.async {
+                        alert.dismiss(animated: true, completion: nil)
                         let pageViewController = self.navigationController?.parent as! UIPageViewController
                         let pvc = pageViewController.delegate as! PageViewController
                         pvc.disable ()
                         self.navigationController?.pushViewController(detailViewController, animated: true)
                     }
                 } else {
-                    alert.dismiss(animated: true, completion: {
-                        self.alertNoProduct(code)
-                    })
+                    DispatchQueue.main.async {
+                          alert.dismiss(animated: true, completion: {
+                            self.alertNoProduct(code)
+                        })
+                    }
                 }
             })
         } else {
@@ -140,18 +141,20 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
 
                     detailViewController.food = Food.fromDictionnary(product)
                     
-                    alert.dismiss(animated: true, completion: nil)
-
+                    
                     DispatchQueue.main.async {
+                        alert.dismiss(animated: true, completion: nil)
                         let pageViewController = self.navigationController?.parent as! UIPageViewController
                         let pvc = pageViewController.delegate as! PageViewController
                         pvc.disable ()
                         self.navigationController?.pushViewController(detailViewController, animated: true)
                     }
                 } else {
-                    alert.dismiss(animated: true, completion: {
-                        self.alertNoProduct(code)
-                    })
+                    DispatchQueue.main.async {
+                        alert.dismiss(animated: true, completion: {
+                            self.alertNoProduct(code)
+                        })
+                    }
                 }
             })
         }

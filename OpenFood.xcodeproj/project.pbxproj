@@ -21,6 +21,9 @@
 		A67690331DF00ED50004C786 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690321DF00ED50004C786 /* FoodDetailViewController.swift */; };
 		A67690351DF00EDB0004C786 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690341DF00EDB0004C786 /* Food.swift */; };
 		A67690371DF00EE00004C786 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67690361DF00EE00004C786 /* DataService.swift */; };
+		A6E994241E0860F10070AE90 /* BlurredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E994231E0860F10070AE90 /* BlurredImageView.swift */; };
+		A6E994261E08661C0070AE90 /* BorderedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E994251E08661C0070AE90 /* BorderedImageView.swift */; };
+		A6E994281E0988BE0070AE90 /* ShadowedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E994271E0988BE0070AE90 /* ShadowedImageView.swift */; };
 		A6F0FE201DF223CF0067D60E /* GradeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F0FE1F1DF223CF0067D60E /* GradeLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		A67690321DF00ED50004C786 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		A67690341DF00EDB0004C786 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		A67690361DF00EE00004C786 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		A6E994231E0860F10070AE90 /* BlurredImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurredImageView.swift; sourceTree = "<group>"; };
+		A6E994251E08661C0070AE90 /* BorderedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedImageView.swift; sourceTree = "<group>"; };
+		A6E994271E0988BE0070AE90 /* ShadowedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowedImageView.swift; sourceTree = "<group>"; };
 		A6F0FE1F1DF223CF0067D60E /* GradeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +183,9 @@
 			children = (
 				A67690301DF00ECF0004C786 /* FoodCell.swift */,
 				A6F0FE1F1DF223CF0067D60E /* GradeLabel.swift */,
+				A6E994231E0860F10070AE90 /* BlurredImageView.swift */,
+				A6E994251E08661C0070AE90 /* BorderedImageView.swift */,
+				A6E994271E0988BE0070AE90 /* ShadowedImageView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -319,12 +328,15 @@
 				A67690311DF00ECF0004C786 /* FoodCell.swift in Sources */,
 				A67690371DF00EE00004C786 /* DataService.swift in Sources */,
 				A676902F1DF00EC80004C786 /* SearchViewController.swift in Sources */,
+				A6E994261E08661C0070AE90 /* BorderedImageView.swift in Sources */,
 				A62070FA1DF6F0C20097B145 /* FoodDataService.swift in Sources */,
 				A6F0FE201DF223CF0067D60E /* GradeLabel.swift in Sources */,
 				A67690331DF00ED50004C786 /* FoodDetailViewController.swift in Sources */,
 				A67690011DF00E4A0004C786 /* AppDelegate.swift in Sources */,
 				A67690351DF00EDB0004C786 /* Food.swift in Sources */,
+				A6E994241E0860F10070AE90 /* BlurredImageView.swift in Sources */,
 				A62070F61DF5DB700097B145 /* PageViewController.swift in Sources */,
+				A6E994281E0988BE0070AE90 /* ShadowedImageView.swift in Sources */,
 				A62070F81DF6237E0097B145 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
