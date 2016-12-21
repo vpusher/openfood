@@ -45,6 +45,7 @@ class GradeLabel: UILabel {
             //self.layer.borderColor = color?.cgColor
             self.layer.backgroundColor = color?.cgColor
             self.textColor = UIColor.white
+            self.isHidden = false
         } else {
             self.isHidden = true
         }

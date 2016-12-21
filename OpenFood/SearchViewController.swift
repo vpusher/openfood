@@ -14,9 +14,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var foods = [Food]()
+    var navigationHairline: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        for rootsubview in (self.navigationController?.navigationBar.subviews)! {
+            for subview in rootsubview.subviews where subview is UIImageView
+                                                                 && (subview as! UIImageView).image == self.navigationController?.navigationBar.shadowImage {
+                self.navigationHairline = subview as! UIImageView
+            }
+        }
         
         FoodDataService.searchProducts("nutella", callback: { (products) in
             
@@ -85,7 +93,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "godetail" {
-            let foodDetailViewController = segue.destination as! FoodDetailViewController
+            let detailViewController = segue.destination as! DetailViewController
             if let selectedCell = sender as? FoodCell {
                 
                 // Disable page controller
@@ -95,7 +103,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 
                 let indexPath = tableView.indexPath(for: selectedCell)!
                 let selectedFood = foods[indexPath.row]
-                foodDetailViewController.food = selectedFood
+                detailViewController.food = selectedFood
             }
             
         }
@@ -106,4 +114,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let pvc = pageViewController.delegate as! PageViewController
         pvc.enable()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationHairline.isHidden = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationHairline.isHidden = true
+    }
+
 }

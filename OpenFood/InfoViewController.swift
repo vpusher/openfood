@@ -8,27 +8,24 @@
 
 import UIKit
 
-class FoodDetailViewController: UIViewController {
+class InfoViewController: UIViewController {
     
-    @IBOutlet weak var imageView: ShadowedImageView!
+    @IBOutlet weak var thumbnailImage: ShadowedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroundImage: BlurredImageView!
     
     @IBOutlet weak var aGradeLabel: GradeLabel!
     @IBOutlet weak var bGradeLabel: GradeLabel!
-
     @IBOutlet weak var cGradeLabel: GradeLabel!
     @IBOutlet weak var dGradeLabel: GradeLabel!
     @IBOutlet weak var eGradeLabel: GradeLabel!
 
-    private let default_thumbnail = UIImage(named: "default_food")!
+    private let defaultThumbnail = UIImage(named: "default_food")!
     
     var food: Food!
     
     func updateUI() {
         self.nameLabel.text = food?.name
-        //self.gradeLabel.grade = food?.nutritionGrade
-
 
         for gradeLabel in [aGradeLabel, bGradeLabel, cGradeLabel, dGradeLabel, eGradeLabel] where (gradeLabel?.grade == food?.nutritionGrade) {
 
@@ -50,20 +47,20 @@ class FoodDetailViewController: UIViewController {
             DataService.ImageFromURL(food.thumbnail!, callback: { (imageData) in
                 DispatchQueue.main.async(){
                     let im =  UIImage(data: imageData!)
-                    self.imageView.image = im
+                    self.thumbnailImage.image = im
                     self.backgroundImage.image = im
                 }
             })
         } else {
             DispatchQueue.main.async(){
-                self.imageView.image = self.default_thumbnail
+                self.thumbnailImage.image = self.defaultThumbnail
             }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = self.food.name
+        
         updateUI()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -74,6 +71,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         backgroundImage.updateBlurFrame()
     }
 

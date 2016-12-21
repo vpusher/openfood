@@ -95,7 +95,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         let alert: UIAlertController = self.alertSearchProduct()
 
         // Instantiate a detail view controller
-        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detail") as! FoodDetailViewController
+        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detail") as! DetailViewController
         
         // Remove the spaces.
         let trimmedCode = code.trimmingCharacters(in: CharacterSet.whitespaces)
