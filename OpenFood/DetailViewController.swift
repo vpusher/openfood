@@ -51,12 +51,12 @@ class DetailViewController: UIViewController {
                 ingredientContainer.isHidden = true
             case 1:
                 infoContainer.isHidden = true
-                nutritionContainer.isHidden = false
-                ingredientContainer.isHidden = true
-            case 2:
-                infoContainer.isHidden = true
                 nutritionContainer.isHidden = true
                 ingredientContainer.isHidden = false
+            case 2:
+                infoContainer.isHidden = true
+                nutritionContainer.isHidden = false
+                ingredientContainer.isHidden = true
             default: break;
         }
     }

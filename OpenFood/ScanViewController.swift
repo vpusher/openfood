@@ -13,6 +13,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
     var session: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    @IBOutlet weak var ARFrameView: UIVisualEffectView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,14 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         view.layer.addSublayer(previewLayer);
         
+        // Add Augmented Reality View
+        //ARFrameView = UIView()
+        //ARFrameView.layer.borderColor = UIColor.green.cgColor
+        //ARFrameView.layer.borderWidth = 2
+        //view.addSubview(ARFrameView)
+        view.bringSubview(toFront: ARFrameView)
+        ARFrameView.frame = CGRect.zero
+        
         // Begin the capture session.
         session.startRunning()
 
@@ -75,8 +84,23 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         // Get the first object from the metadataObjects array.
         if let barcodeData = metadataObjects.first {
             // Turn it into machine readable code
-            let barcodeReadable = barcodeData as? AVMetadataMachineReadableCodeObject;
-            if let readableCode = barcodeReadable {
+            if let readableCode = barcodeData as? AVMetadataMachineReadableCodeObject {
+                
+                // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+                let formerFrame = ARFrameView.frame
+                let bounds = (previewLayer.transformedMetadataObject(for: readableCode))!.bounds
+                let width = CGFloat(smooth(Float(bounds.width), Float(formerFrame.width)))
+                let frame = CGRect(
+                    x: CGFloat(smooth(Float(bounds.minX), Float(formerFrame.minX))),
+                    y: CGFloat(smooth(Float(bounds.minY - width/4), Float(formerFrame.minY))),
+                    width: width,
+                    height: width/2
+                )
+                
+                ARFrameView.frame = frame
+                
+                return;
+                
                 // Send the barcode as a string to barcodeDetected()
                 barcodeDetected(readableCode.stringValue);
             }
@@ -86,7 +110,15 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             
             // Avoid a very buzzy device.
             session.stopRunning()
+        } else {
+            ARFrameView.frame = CGRect.zero
         }
+        
+
+    }
+    
+    func smooth (_ demand: Float, _ forecast: Float, factor: Float = 0.2) -> Float {
+        return (demand * factor) + (forecast * (1 - factor))
     }
     
     func barcodeDetected(_ code: String) {
